@@ -1,4 +1,4 @@
-package app.beelabs.com.demojetpack.nav
+package app.beelabs.com.demojetpack.session1.nav
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,19 +9,22 @@ import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import app.beelabs.com.demojetpack.R
 
-class PageFirstFragment : Fragment() {
+class PageThirdFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.fragment_page_first, container, false)
-        val btnPage = rootView.findViewById<Button>(R.id.btn_page)
-        // Inflate the layout for this fragment
 
-        btnPage.setOnClickListener {
-            findNavController().navigate(R.id.action_pageFirstFragment_to_pageSecondFragment)
+        // Inflate the layout for this fragment
+        val rootView =  inflater.inflate(R.layout.fragment_page_third, container, false)
+
+        val btnBack = rootView.findViewById<Button>(R.id.btn_back)
+
+        btnBack.setOnClickListener {
+            activity?.onBackPressed()
         }
+
         return rootView
     }
 
