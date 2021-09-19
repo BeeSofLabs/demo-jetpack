@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".session1.nav.PageFirstFragment">
+    tools:context=".session1.nav.PageSecondFragment">
+
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -15,33 +16,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Page 1"
+            android:text="Customer 2"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/btn_page"
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
+            android:paddingHorizontal="50dp"
             android:layout_below="@+id/page_label"
-            android:background="@color/black"
-            android:text="Ke page 2"
+            android:backgroundTint="@android:color/holo_green_dark"
+            android:text="Ke customer 3"
             android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/btn_customer"
+            android:id="@+id/btn_back"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
             android:layout_below="@+id/btn_page"
             android:backgroundTint="@android:color/holo_green_dark"
-            android:text="Ke Customer"
+            android:text="Kembali"
             android:textColor="@color/white" />
-
-
-
     </RelativeLayout>
 </FrameLayout>

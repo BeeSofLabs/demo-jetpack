@@ -1,4 +1,4 @@
-package app.beelabs.com.demojetpack.session1.nav
+package app.beelabs.com.demojetpack.session1.nav.customer
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,28 +8,22 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.core.net.toUri
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import app.beelabs.com.demojetpack.R
 
-class PageFirstFragment : Fragment() {
+class CustomerFirstFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.fragment_page_first, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_customer_first, container, false)
         val btnPage = rootView.findViewById<Button>(R.id.btn_page)
-        val btnCustomer = rootView.findViewById<Button>(R.id.btn_customer)
         // Inflate the layout for this fragment
 
         btnPage.setOnClickListener {
-            findNavController().navigate(R.id.action_pageFirstFragment_to_pageSecondFragment)
+            findNavController().navigate(R.id.action_customerFirstFragment_to_customerSecondFragment)
 //            findNavController().navigate(resources.getString(R.string.deeplink_demo_app).toUri())
-        }
-
-        btnCustomer.setOnClickListener {
-            findNavController().navigate(R.id.action_pageFirstFragment_to_customerFirstFragment)
         }
         return rootView
     }
