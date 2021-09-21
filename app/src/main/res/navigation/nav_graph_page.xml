@@ -17,7 +17,6 @@
             android:id="@+id/action_pageFirstFragment_to_customerFirstFragment"
             app:destination="@id/nav_graph_customer" />
 
-
     </fragment>
     <fragment
         android:id="@+id/pageSecondFragment"
@@ -32,7 +31,6 @@
         android:name="app.beelabs.com.demojetpack.session1.nav.PageThirdFragment"
         android:label="PageThirdFragment" >
 
-        <deepLink app:uri="@string/deeplink_demo_app" />
     </fragment>
 
     <include app:graph="@navigation/nav_graph_customer" />

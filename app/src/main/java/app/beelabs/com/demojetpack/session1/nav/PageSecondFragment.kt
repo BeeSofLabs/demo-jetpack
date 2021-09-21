@@ -33,6 +33,8 @@ class PageSecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         val navController = findNavController()
-        navController.previousBackStackEntry?.savedStateHandle?.set("custom_key", "Hello , im back")
+        navController.previousBackStackEntry?.
+        savedStateHandle?.
+        set("custom_key", "Hello , im back")
     }
 }

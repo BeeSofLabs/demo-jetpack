@@ -23,7 +23,6 @@ class CustomerFirstFragment : Fragment() {
 
         btnPage.setOnClickListener {
             findNavController().navigate(R.id.action_customerFirstFragment_to_customerSecondFragment)
-//            findNavController().navigate(resources.getString(R.string.deeplink_demo_app).toUri())
         }
         return rootView
     }
@@ -32,7 +31,6 @@ class CustomerFirstFragment : Fragment() {
         val navController = findNavController()
         navController.currentBackStackEntry?.savedStateHandle?.getLiveData<String>("custom_key")?.observe(
             viewLifecycleOwner) { result ->
-            // Do something with the result.
             Toast.makeText(activity, result, Toast.LENGTH_LONG).show()
         }
     }

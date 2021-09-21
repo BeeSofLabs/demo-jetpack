@@ -12,7 +12,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import app.beelabs.com.demojetpack.R
 
-class PageFirstFragment : Fragment() {
+class  PageFirstFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,11 +21,9 @@ class PageFirstFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_page_first, container, false)
         val btnPage = rootView.findViewById<Button>(R.id.btn_page)
         val btnCustomer = rootView.findViewById<Button>(R.id.btn_customer)
-        // Inflate the layout for this fragment
 
         btnPage.setOnClickListener {
             findNavController().navigate(R.id.action_pageFirstFragment_to_pageSecondFragment)
-//            findNavController().navigate(resources.getString(R.string.deeplink_demo_app).toUri())
         }
 
         btnCustomer.setOnClickListener {
@@ -34,12 +32,12 @@ class PageFirstFragment : Fragment() {
         return rootView
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val navController = findNavController()
-        navController.currentBackStackEntry?.savedStateHandle?.getLiveData<String>("custom_key")?.observe(
-            viewLifecycleOwner) { result ->
-            // Do something with the result.
-            Toast.makeText(activity, result, Toast.LENGTH_LONG).show()
-        }
-    }
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        val navController = findNavController()
+//        navController.currentBackStackEntry?.savedStateHandle?.getLiveData<String>("custom_key")?.observe(
+//            viewLifecycleOwner) { result ->
+//            // Do something with the result.
+//            Toast.makeText(activity, result, Toast.LENGTH_LONG).show()
+//        }
+//    }
 }
