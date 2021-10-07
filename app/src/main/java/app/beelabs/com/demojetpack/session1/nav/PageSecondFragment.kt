@@ -5,12 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import androidx.navigation.ui.NavigationUI
 import app.beelabs.com.demojetpack.R
 
 class PageSecondFragment : Fragment() {
 
+    val args: PageSecondFragmentArgs by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,21 +26,27 @@ class PageSecondFragment : Fragment() {
         val btnPage = rootView.findViewById<Button>(R.id.btn_page)
         val btnBack = rootView.findViewById<Button>(R.id.btn_back)
 
+        val pageNumber = args.pageNumber
+        val pageId = arguments?.getString("pageId")
+//        Toast.makeText(activity, "Page $pageNumber", Toast.LENGTH_LONG).show()
+        Toast.makeText(activity, "PageID $pageId", Toast.LENGTH_LONG).show()
+
         btnPage.setOnClickListener {
-            findNavController().navigate(R.id.action_pageSecondFragment_to_pageThirdFragment)
+            val action = PageSecondFragmentDirections.actionPageSecondFragmentToPageThirdFragment(pageNumber = pageNumber+1 )
+            Navigation.findNavController(it).navigate(action)
         }
         btnBack.setOnClickListener {
             activity?.onBackPressed()
         }
-        // Inflate the layout for this fragment
+
         return rootView
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        val navController = findNavController()
-        navController.previousBackStackEntry?.
-        savedStateHandle?.
-        set("custom_key", "Hello , im back")
-    }
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//
+//        val navController = findNavController()
+//        navController.previousBackStackEntry?.
+//        savedStateHandle?.
+//        set("custom_key", "Hello , im back")
+//    }
 }

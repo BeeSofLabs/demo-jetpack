@@ -30,9 +30,9 @@ class CustomerSecondFragment : Fragment() {
         return rootView
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        val navController = findNavController()
-        navController.previousBackStackEntry?.savedStateHandle?.set("custom_key", "Hello , im back")
-    }
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//
+//        val navController = findNavController()
+//        navController.previousBackStackEntry?.savedStateHandle?.set("custom_key", "Hello , im back")
+//    }
 }

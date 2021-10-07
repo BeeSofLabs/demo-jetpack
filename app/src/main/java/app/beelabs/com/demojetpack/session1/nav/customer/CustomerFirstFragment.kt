@@ -27,11 +27,11 @@ class CustomerFirstFragment : Fragment() {
         return rootView
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val navController = findNavController()
-        navController.currentBackStackEntry?.savedStateHandle?.getLiveData<String>("custom_key")?.observe(
-            viewLifecycleOwner) { result ->
-            Toast.makeText(activity, result, Toast.LENGTH_LONG).show()
-        }
-    }
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        val navController = findNavController()
+//        navController.currentBackStackEntry?.savedStateHandle?.getLiveData<String>("custom_key")?.observe(
+//            viewLifecycleOwner) { result ->
+//            Toast.makeText(activity, result, Toast.LENGTH_LONG).show()
+//        }
+//    }
 }

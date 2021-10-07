@@ -27,7 +27,7 @@
             android:layout_marginTop="20dp"
             android:layout_below="@+id/page_label"
             android:backgroundTint="@android:color/holo_green_dark"
-            android:text="Ke page 2"
+            android:text="Ke Customer 2"
             android:textColor="@color/white" />
 
 
