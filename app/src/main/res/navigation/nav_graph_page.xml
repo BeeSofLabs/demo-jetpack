@@ -13,11 +13,8 @@
 
         <action
             android:id="@+id/action_pageFirstFragment_to_pageSecondFragment"
-            app:destination="@id/pageSecondFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
-            app:popEnterAnim="@anim/slide_out_right"
-            app:popExitAnim="@anim/slide_in_left" />
+            app:destination="@id/pageSecondFragment" />
+
         <action
             android:id="@+id/action_pageFirstFragment_to_customerFirstFragment"
             app:destination="@id/nav_graph_customer" />
@@ -30,6 +27,9 @@
         <action
             android:id="@+id/action_pageSecondFragment_to_pageThirdFragment"
             app:destination="@id/pageThirdFragment" />
+        <argument
+            android:name="user"
+            app:argType="app.beelabs.com.demojetpack.session1.model.User" />
     </fragment>
     <fragment
         android:id="@+id/pageThirdFragment"
