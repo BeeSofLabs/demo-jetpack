@@ -23,6 +23,7 @@ class PageSecondFragment : Fragment() {
         val nameLabel = rootView.findViewById<TextView>(R.id.user_name)
         val addressLabel = rootView.findViewById<TextView>(R.id.user_address)
         val ageLabel = rootView.findViewById<TextView>(R.id.user_age)
+
         val btnPage = rootView.findViewById<Button>(R.id.btn_page)
         val btnBack = rootView.findViewById<Button>(R.id.btn_back)
 
@@ -32,8 +33,6 @@ class PageSecondFragment : Fragment() {
             addressLabel.text = address
             ageLabel.text = age.toString()
         }
-
-
 
 
         btnPage.setOnClickListener {

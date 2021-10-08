@@ -25,7 +25,7 @@ class PageFirstFragment : Fragment() {
             val user = User("John", "South Jakarta", 25)
             val action =
                 PageFirstFragmentDirections.actionPageFirstFragmentToPageSecondFragment(user)
-            findNavController(it).navigate(action)
+            findNavController().navigate(action)
         }
 
         btnCustomer.setOnClickListener {
