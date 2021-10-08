@@ -26,8 +26,8 @@ class  PageFirstFragment : Fragment() {
         val btnCustomer = rootView.findViewById<Button>(R.id.btn_customer)
 
         btnPage.setOnClickListener {
-            val action = PageFirstFragmentDirections.actionPageFirstFragmentToPageSecondFragment(pageNumber = pageNumber+1 )
-            val bundle = bundleOf("pageId" to "B")
+//            val action = PageFirstFragmentDirections.actionPageFirstFragmentToPageSecondFragment(pageNumber = pageNumber+1 )
+            val bundle = bundleOf("pageId" to "abc123")
 //            Navigation.findNavController(it).navigate(action)
             Navigation.findNavController(it).navigate(R.id.action_pageFirstFragment_to_pageSecondFragment, bundle)
         }

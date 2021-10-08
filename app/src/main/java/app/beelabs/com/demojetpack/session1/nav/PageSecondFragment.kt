@@ -29,7 +29,7 @@ class PageSecondFragment : Fragment() {
         val pageNumber = args.pageNumber
         val pageId = arguments?.getString("pageId")
 //        Toast.makeText(activity, "Page $pageNumber", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "PageID $pageId", Toast.LENGTH_LONG).show()
+        Toast.makeText(activity, "PageID $pageId from Bundle", Toast.LENGTH_LONG).show()
 
         btnPage.setOnClickListener {
             val action = PageSecondFragmentDirections.actionPageSecondFragmentToPageThirdFragment(pageNumber = pageNumber+1 )
