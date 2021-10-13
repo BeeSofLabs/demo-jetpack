@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_customerSecondFragment_to_customerThirdFragment"
             app:destination="@id/customerThirdFragment" />
+
+        <deepLink
+            app:uri="demo-app://demo.app/content/customer_second" />
     </fragment>
     <fragment
         android:id="@+id/customerThirdFragment"

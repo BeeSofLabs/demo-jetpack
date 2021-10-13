@@ -26,13 +26,13 @@ class PageSecondFragment : Fragment() {
         val btnPage = rootView.findViewById<Button>(R.id.btn_page)
         val btnBack = rootView.findViewById<Button>(R.id.btn_back)
 
-        val pageNumber = args.pageNumber
-        val pageId = arguments?.getString("pageId")
+//        val pageNumber = args.pageNumber
+        val pageNumberString = arguments?.getString("pageNumberString")
 //        Toast.makeText(activity, "Page $pageNumber", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "PageID $pageId from Bundle", Toast.LENGTH_LONG).show()
+        Toast.makeText(activity, "pageNumber $pageNumberString", Toast.LENGTH_LONG).show()
 
         btnPage.setOnClickListener {
-            val action = PageSecondFragmentDirections.actionPageSecondFragmentToPageThirdFragment(pageNumber = pageNumber+1 )
+            val action = PageSecondFragmentDirections.actionPageSecondFragmentToPageThirdFragment(pageNumber = 3 )
             Navigation.findNavController(it).navigate(action)
         }
         btnBack.setOnClickListener {

@@ -41,6 +41,18 @@
             android:text="Ke Customer"
             android:textColor="@color/white" />
 
+        <Button
+            android:id="@+id/btn_customer_deeplink"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/btn_customer"
+            android:backgroundTint="@android:color/holo_orange_dark"
+            android:text="Ke Customer 2 deeplink"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
 
 
 

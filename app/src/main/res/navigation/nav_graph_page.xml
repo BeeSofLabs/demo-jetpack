@@ -19,7 +19,6 @@
             android:id="@+id/action_pageFirstFragment_to_customerFirstFragment"
             app:destination="@id/nav_graph_customer" />
 
-
     </fragment>
     <fragment
         android:id="@+id/pageSecondFragment"
