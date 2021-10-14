@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import app.beelabs.com.demojetpack.R
@@ -19,6 +20,8 @@ class CustomerSecondFragment : Fragment() {
 
         val btnPage = rootView.findViewById<Button>(R.id.btn_page)
         val btnBack = rootView.findViewById<Button>(R.id.btn_back)
+        val usernameLabel = rootView.findViewById<TextView>(R.id.page_label)
+        usernameLabel.text = arguments?.getString("username")
 
         btnPage.setOnClickListener {
             findNavController().navigate(R.id.action_customerSecondFragment_to_customerThirdFragment)

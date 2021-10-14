@@ -39,7 +39,7 @@ class PageFirstFragment : Fragment() {
         btnCustomer2.setOnClickListener {
             // test use deeplink
             startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse("demo-app://demo.app/content/customer_second")
+                data = Uri.parse("demo-app://demo.app/content/customer_second?username='John in customer 2'")
             })
         }
 
