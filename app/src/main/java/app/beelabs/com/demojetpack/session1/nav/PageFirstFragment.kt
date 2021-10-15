@@ -11,6 +11,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import app.beelabs.com.demojetpack.IConfig
 import app.beelabs.com.demojetpack.R
 
 class PageFirstFragment : Fragment() {
@@ -24,7 +25,7 @@ class PageFirstFragment : Fragment() {
 
         val btnPage = rootView.findViewById<Button>(R.id.btn_page)
         val btnCustomer = rootView.findViewById<Button>(R.id.btn_customer)
-        val btnCustomer2 = rootView.findViewById<Button>(R.id.btn_customer_deeplink)
+//        val btnCustomerDeeplink = rootView.findViewById<Button>(R.id.btn_customer_deeplink)
 
         btnPage.setOnClickListener {
 //            val action = PageFirstFragmentDirections.actionPageFirstFragmentToPageSecondFragment(pageNumber = pageNumber+1 )
@@ -36,12 +37,12 @@ class PageFirstFragment : Fragment() {
         btnCustomer.setOnClickListener {
             findNavController().navigate(R.id.action_pageFirstFragment_to_customerFirstFragment)
         }
-        btnCustomer2.setOnClickListener {
-            // test use deeplink
-            startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse("demo-app://demo.app/content/customer_second?username='John in customer 2'")
-            })
-        }
+//        btnCustomerDeeplink.setOnClickListener {
+//            // test use deeplink
+//            startActivity(Intent(Intent.ACTION_VIEW).apply {
+////                data = Uri.parse(resources.getString(R.string.deeplink_demo_app))
+//            })
+//        }
 
         return rootView
 
