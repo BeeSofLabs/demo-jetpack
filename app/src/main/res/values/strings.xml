@@ -4,4 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="deeplink_demo_app">demo://page/3/page3</string>
+
+    <!--  dependency injection  -->
+    <string name="message3">this is my main third message</string>
 </resources>

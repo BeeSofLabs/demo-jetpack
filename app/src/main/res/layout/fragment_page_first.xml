@@ -10,39 +10,37 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center">
 
-        <TextView
-            android:id="@+id/page_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Page 1"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
         <Button
-            android:id="@+id/btn_page"
+            android:id="@+id/btn_message1"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:layout_below="@+id/page_label"
             android:background="@color/black"
-            android:text="Ke page 2"
+            android:text="Message 1"
             android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/btn_customer"
+            android:id="@+id/btn_message2"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_message1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:layout_below="@+id/btn_page"
             android:backgroundTint="@android:color/holo_green_dark"
-            android:text="Ke Customer"
+            android:text="message 2"
             android:textColor="@color/white" />
 
-
-
+        <Button
+            android:id="@+id/btn_message3"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_message2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:text="message 3"
+            android:textColor="@color/white" />
 
 
     </RelativeLayout>
