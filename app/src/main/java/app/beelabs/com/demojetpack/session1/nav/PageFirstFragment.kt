@@ -25,7 +25,7 @@ class PageFirstFragment : Fragment() {
 
         val btnPage = rootView.findViewById<Button>(R.id.btn_page)
         val btnCustomer = rootView.findViewById<Button>(R.id.btn_customer)
-//        val btnCustomerDeeplink = rootView.findViewById<Button>(R.id.btn_customer_deeplink)
+        val btnCustomerDeeplink = rootView.findViewById<Button>(R.id.btn_customer_deeplink)
 
         btnPage.setOnClickListener {
 //            val action = PageFirstFragmentDirections.actionPageFirstFragmentToPageSecondFragment(pageNumber = pageNumber+1 )
@@ -37,12 +37,12 @@ class PageFirstFragment : Fragment() {
         btnCustomer.setOnClickListener {
             findNavController().navigate(R.id.action_pageFirstFragment_to_customerFirstFragment)
         }
-//        btnCustomerDeeplink.setOnClickListener {
-//            // test use deeplink
-//            startActivity(Intent(Intent.ACTION_VIEW).apply {
-////                data = Uri.parse(resources.getString(R.string.deeplink_demo_app))
-//            })
-//        }
+        btnCustomerDeeplink.setOnClickListener {
+            // test use deeplink
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse(resources.getString(R.string.deeplink_demo_app).replace("{username}", "Tester"))
+            })
+        }
 
         return rootView
 

@@ -14,6 +14,10 @@
         <action
             android:id="@+id/action_customerFirstFragment_to_customerSecondFragment"
             app:destination="@id/customerSecondFragment" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue='""' />
     </fragment>
     <fragment
         android:id="@+id/customerSecondFragment"
@@ -24,7 +28,11 @@
             app:destination="@id/customerThirdFragment" />
         <deepLink
             android:id="@+id/deepLink"
-            app:uri="demo-app://demo.app/content/customer_second" />
+            app:uri="@string/deeplink_demo_app" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue='""' />
 
     </fragment>
     <fragment
