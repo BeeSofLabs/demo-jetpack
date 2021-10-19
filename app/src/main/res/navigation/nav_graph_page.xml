@@ -14,13 +14,10 @@
         <action
             android:id="@+id/action_pageFirstFragment_to_pageSecondFragment"
             app:destination="@id/pageSecondFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
-            app:popEnterAnim="@anim/slide_out_right"
-            app:popExitAnim="@anim/slide_in_left" />
-        <action
-            android:id="@+id/action_pageFirstFragment_to_customerFirstFragment"
-            app:destination="@id/nav_graph_customer" />
+            app:enterAnim="@anim/slide_to_left"
+            app:exitAnim="@anim/slide_from_left"
+            app:popEnterAnim="@anim/slide_from_right"
+            app:popExitAnim="@anim/slide_to_right" />
 
     </fragment>
     <fragment
@@ -38,7 +35,6 @@
 
     </fragment>
 
-    <include app:graph="@navigation/nav_graph_customer" />
 
 </navigation>
 

@@ -20,15 +20,13 @@ class  PageFirstFragment : Fragment() {
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_page_first, container, false)
         val btnPage = rootView.findViewById<Button>(R.id.btn_page)
-        val btnCustomer = rootView.findViewById<Button>(R.id.btn_customer)
+//        val btnCustomer = rootView.findViewById<Button>(R.id.btn_customer)
 
         btnPage.setOnClickListener {
             findNavController().navigate(R.id.action_pageFirstFragment_to_pageSecondFragment)
         }
 
-        btnCustomer.setOnClickListener {
-            findNavController().navigate(R.id.action_pageFirstFragment_to_customerFirstFragment)
-        }
+
         return rootView
     }
 
