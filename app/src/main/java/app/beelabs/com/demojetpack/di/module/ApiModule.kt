@@ -1,0 +1,28 @@
+package app.beelabs.com.demojetpack.di.module
+
+import app.beelabs.coconut.mvvm.base.interfaces.IApiService
+import app.beelabs.coconut.mvvm.di.manager.ApiServiceManager
+import app.beelabs.com.demojetpack.model.api.Api
+import app.beelabs.com.demojetpack.model.api.remote.SourceRemoteDataSource
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
+
+@Module
+@InstallIn(SingletonComponent::class)
+class ApiModule {
+
+    @Provides
+    @Singleton
+    fun provideRemoteData(): SourceRemoteDataSource = SourceRemoteDataSource(provideApi())
+
+    @Provides
+    @Singleton
+    fun provideApi(): Api = Api(provideApiService())
+
+    @Provides
+    @Singleton
+    fun provideApiService(): IApiService = ApiServiceManager()
+}
