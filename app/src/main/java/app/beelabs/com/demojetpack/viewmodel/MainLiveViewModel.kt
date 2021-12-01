@@ -31,7 +31,7 @@ class MainLiveViewModel @Inject constructor(
             _location.value = repository.getLocationCaroutine()
         }
 
-    fun getLocalLocation(application: Application){
+    fun getLocalLocation(application: Application) {
         viewModelScope.launch {
             val list = repository.getLocalLocation(application)
             list.collect { values ->
