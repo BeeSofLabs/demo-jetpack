@@ -28,12 +28,12 @@ class MainLiveViewModel @Inject constructor(
 
     fun getLocationLiveData() =
         viewModelScope.launch {
-            _location.value = repository.getLocationCaroutine()
+            _location.value = (repository as LocationRepository).getLocationCaroutine()
         }
 
     fun getLocalLocation(application: Application) {
         viewModelScope.launch {
-            val list = repository.getLocalLocation(application)
+            val list = (repository as LocationRepository).getLocalLocation(application)
             list.collect { values ->
                 _localLocation.postValue(values)
             }
@@ -43,7 +43,7 @@ class MainLiveViewModel @Inject constructor(
     }
 
     suspend fun insertLocalLocation(local: LocationEntity, context: Context) {
-        repository.insertLocalLocation(local, context)
+        (repository as LocationRepository).insertLocalLocation(local, context)
     }
 
 }

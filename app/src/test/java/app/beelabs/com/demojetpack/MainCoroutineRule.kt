@@ -20,6 +20,7 @@ class MainCoroutineRule : TestWatcher(), TestCoroutineScope by TestCoroutineScop
 
     override fun finished(description: Description) {
         super.finished(description)
+        cleanupTestCoroutines()
         Dispatchers.resetMain()
     }
 

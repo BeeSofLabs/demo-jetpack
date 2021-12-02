@@ -11,7 +11,7 @@ class LocationResponse() : BaseResponse() {
     var locationData: List<LocationData> = listOf()
 
     class LocationData {
-        val id: String = ""
+        val id: Int = 0
         val name: String = ""
     }
 

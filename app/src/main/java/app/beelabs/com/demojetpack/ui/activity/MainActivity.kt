@@ -6,10 +6,9 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import app.beelabs.coconut.mvvm.base.BaseActivity
 import app.beelabs.coconut.mvvm.base.Resource
-import app.beelabs.com.demojetpack.model.api.response.LocationResponse
 import app.beelabs.com.coconut_mvvm.sample.ui.interfaces.IMainView
 import app.beelabs.com.demojetpack.databinding.ActivityMainBinding
-
+import app.beelabs.com.demojetpack.model.api.response.LocationResponse
 import app.beelabs.com.demojetpack.viewmodel.MainLiveViewModel
 import app.beelabs.com.demojetpack.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,28 +27,30 @@ class MainActivity : BaseActivity(), IMainView {
         setContentView(binding.root)
 
         // RX Observer
-        viewModelRx.getSource(this)
+//        viewModelRx.getSource(this)
 
         // coroutine livedata retrofit
-//        doCoroutine()
+        doCoroutine()
         doLocalData()
     }
 
     fun doLocalData() {
         viewModelLive.getLocalLocation(application)
         viewModelLive.localLocation.observe(this, { result ->
-            Log.d("", "")
+            Log.d("REsult.size: ", result.size.toString())
         })
     }
 
-    fun doCoroutine(){
+    fun doCoroutine() {
         viewModelLive.getLocationLiveData()
         viewModelLive.location.observe(this, { resource ->
             when (resource) {
                 is Resource.Success -> {
                     val source = resource.value
                     binding.apply {
-                        demoTitle.text = "LiveData: \n${source.locationData[4].name}".also { binding.demoTitle.text = it }
+                        demoTitle.text = "LiveData: \n${source.locationData[4].name}".also {
+                            binding.demoTitle.text = it
+                        }
                     }
                 }
                 is Resource.Error -> {

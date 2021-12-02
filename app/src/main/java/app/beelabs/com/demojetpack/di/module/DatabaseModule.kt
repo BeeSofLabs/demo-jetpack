@@ -8,7 +8,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -16,13 +15,11 @@ import javax.inject.Singleton
 class DatabaseModule {
 
     @Provides
-    @Singleton
-    @Named("app_dao")
     fun provideLocationDao(database: MvvmDatabase) : LocationDao = database.locationDao()
 
     @Provides
     @Singleton
-    @Named("app_db")
     fun provideDatabase(@ApplicationContext context: Context): MvvmDatabase =
         MvvmDatabase.getDatabase(context)
+
 }
