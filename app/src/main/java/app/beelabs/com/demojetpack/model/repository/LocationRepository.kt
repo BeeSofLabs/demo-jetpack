@@ -8,6 +8,7 @@ import app.beelabs.com.demojetpack.model.api.remote.SourceRemoteDataSource
 import app.beelabs.com.demojetpack.model.api.response.LocationResponse
 import app.beelabs.com.demojetpack.model.dao.LocationDao
 import app.beelabs.com.demojetpack.model.pojo.LocationEntity
+import app.beelabs.com.demojetpack.ui.interfaces.ILocationRepository
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -20,7 +21,7 @@ import javax.inject.Inject
 class LocationRepository @Inject constructor(
     private val remoteData: SourceRemoteDataSource,
     private val locationDao: LocationDao
-) : BaseRepository() {
+) : BaseRepository(), ILocationRepository {
 
     fun getSourceDataRemoteRX(): Observable<LocationResponse?>? =
         remoteData.getSourceByRX()?.subscribeOn(Schedulers.io())

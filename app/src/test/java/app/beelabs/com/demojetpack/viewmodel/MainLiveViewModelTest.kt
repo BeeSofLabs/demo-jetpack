@@ -2,8 +2,9 @@ package app.beelabs.com.demojetpack.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.beelabs.com.demojetpack.FakeRepository
-import app.beelabs.com.demojetpack.MainCoroutineRule
+import app.beelabs.com.demojetpack.rule.MainCoroutineRule
 import app.beelabs.com.demojetpack.model.api.response.LocationResponse
+import app.beelabs.com.demojetpack.model.repository.LocationRepository
 import app.beelabs.com.demojetpack.util.getOrAwaitValueTest
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.common.truth.Truth.assertThat
@@ -14,6 +15,8 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.mockito.Mock
+import org.mockito.MockitoAnnotations
 import java.nio.file.Paths
 
 @ExperimentalCoroutinesApi
@@ -30,8 +33,9 @@ class MainLiveViewModelTest : TestCase() {
 
     @Before
     public override fun setUp() {
+//        MockitoAnnotations.initMocks(this);
         val repo = FakeRepository()
-//        viewModel = MainLiveViewModel(repo)
+        viewModel = MainLiveViewModel(repo)
     }
 
     @After
@@ -48,7 +52,7 @@ class MainLiveViewModelTest : TestCase() {
             LocationResponse::class.java
         )
 //
-//        val value = viewModel.location.getOrAwaitValueTest()
+        val value = viewModel.location.getOrAwaitValueTest()
 
         assertThat("").isEqualTo("")
     }

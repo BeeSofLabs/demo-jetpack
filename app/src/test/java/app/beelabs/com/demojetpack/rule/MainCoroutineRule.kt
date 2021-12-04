@@ -1,4 +1,4 @@
-package app.beelabs.com.demojetpack
+package app.beelabs.com.demojetpack.rule
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

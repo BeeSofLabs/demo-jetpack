@@ -10,6 +10,7 @@ import app.beelabs.coconut.mvvm.base.Resource
 import app.beelabs.com.demojetpack.model.api.response.LocationResponse
 import app.beelabs.com.demojetpack.model.pojo.LocationEntity
 import app.beelabs.com.demojetpack.model.repository.LocationRepository
+import app.beelabs.com.demojetpack.ui.interfaces.ILocationRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -17,7 +18,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainLiveViewModel @Inject constructor(
-    private val repository: LocationRepository
+    private val repository: ILocationRepository
 ) : BaseViewModel() {
 
     private val _location: MutableLiveData<Resource<LocationResponse>> = MutableLiveData()
