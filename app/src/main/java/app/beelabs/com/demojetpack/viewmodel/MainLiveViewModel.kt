@@ -23,22 +23,15 @@ import javax.inject.Inject
 class MainLiveViewModel @Inject constructor(
     private val repository: ILocationRepository
 ) : BaseViewModel() {
-
     private var _location: MutableLiveData<Resource<LocationResponse>> = MutableLiveData()
-    val location: LiveData<Resource<LocationResponse>>
-        get() = _location
-
-
-
+    val location: LiveData<Resource<LocationResponse>> = _location
 
 
     private var _localLocation: MutableLiveData<List<LocationEntity>> = MutableLiveData()
     val localLocation: LiveData<List<LocationEntity>> = _localLocation
 
-//    private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default
-
     fun getLocationLiveData() =
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             val result = (repository as LocationRepository).getLocationCaroutine()
             _location.postValue(result)
         }
@@ -50,8 +43,6 @@ class MainLiveViewModel @Inject constructor(
                 _localLocation.postValue(values)
             }
         }
-
-
     }
 
     suspend fun insertLocalLocation(local: LocationEntity, context: Context) {

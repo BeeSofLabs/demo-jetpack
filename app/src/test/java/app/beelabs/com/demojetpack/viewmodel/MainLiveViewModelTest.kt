@@ -1,7 +1,6 @@
 package app.beelabs.com.demojetpack.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.MutableLiveData
 import app.beelabs.coconut.mvvm.base.Resource
 import app.beelabs.com.demojetpack.model.api.response.LocationResponse
 import app.beelabs.com.demojetpack.model.repository.LocationRepository
@@ -14,15 +13,16 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runBlockingTest
-import org.hamcrest.MatcherAssert.assertThat
-import org.hamcrest.core.Is.`is`
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.junit.runners.JUnit4
 import org.mockito.Mockito
 import java.nio.file.Paths
 
+@RunWith(JUnit4::class)
 class MainLiveViewModelTest : TestCase() {
 
     @get:Rule
@@ -58,10 +58,16 @@ class MainLiveViewModelTest : TestCase() {
         Mockito.`when`(repo.getLocationCaroutine())
             .thenReturn(Resource.Success(locationResponse))
         viewModel.getLocationLiveData()
-            delay(5000)
+        delay(5000)
 
-        var resource = viewModel.location.getOrAwaitValue()
+        viewModel.location.getOrAwaitValue().let {
+            val data = it as Resource.Success<LocationResponse>
 
-        assertThat("Hellow Mock suspend", `is`("Hellow Mock suspend"))
+            assertEquals(Resource.Success::class.java, it.javaClass)
+            assertEquals(data.value.locationData, locationResponse.locationData)
+
+        }
+
+
     }
 }
