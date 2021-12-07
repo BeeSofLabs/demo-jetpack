@@ -48,7 +48,7 @@ class MainLiveViewModelTest : TestCase() {
     }
 
     @Test
-    fun testRemoteDataList() = runBlockingTest {
+    fun `testRemoteDataList`() = runBlockingTest {
 
         var locationResponse: LocationResponse = ObjectMapper().readValue(
             Paths.get("src/test/resources/dataLocation.json").toFile(),
@@ -65,7 +65,6 @@ class MainLiveViewModelTest : TestCase() {
 
             assertEquals(Resource.Success::class.java, it.javaClass)
             assertEquals(data.value.locationData, locationResponse.locationData)
-
         }
 
 
