@@ -18,16 +18,18 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class LocationRepository @Inject constructor(
+open class LocationRepository @Inject constructor(
     private val remoteData: SourceRemoteDataSource,
     private val locationDao: LocationDao
 ) : BaseRepository(), ILocationRepository {
+
+    override suspend fun getTextTest() = "hello world"
 
     fun getSourceDataRemoteRX(): Observable<LocationResponse?>? =
         remoteData.getSourceByRX()?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
 
-    suspend fun getLocationCaroutine() = safeApiCall { remoteData.getSourceByCallback() }
+    override suspend fun getLocationCaroutine() = safeApiCall { remoteData.getSourceByCallback() }
 
 
     // Database
@@ -40,4 +42,5 @@ class LocationRepository @Inject constructor(
     suspend fun insertLocalLocation(location: LocationEntity, context: Context) {
         locationDao.insertLocation(location)
     }
+
 }

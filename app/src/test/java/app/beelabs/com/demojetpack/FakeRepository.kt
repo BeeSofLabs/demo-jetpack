@@ -9,5 +9,11 @@ class FakeRepository : ILocationRepository {
 
     private val locationLiveData = MutableLiveData<Resource<LocationResponse>>()
 
+    override suspend fun getTextTest(): String = "Hello"
+
+    override suspend fun getLocationCaroutine(): Resource<LocationResponse>? {
+        return null
+    }
+
 
 }

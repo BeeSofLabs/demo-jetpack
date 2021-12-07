@@ -21,7 +21,7 @@
 //
 //    @get:Rule
 //    var instantTaskExecutorRule = InstantTaskExecutorRule()
-//
+//i
 //    @get:Rule
 //    var mainCoroutineRule = MainCoroutineRule()
 //

@@ -9,8 +9,9 @@ import kotlinx.coroutines.flow.Flow
 
 
 interface ILocationRepository {
-//    suspend fun getLocationCaroutine(): Resource<LocationResponse>?
-//
+    suspend fun getLocationCaroutine(): Resource<LocationResponse>?
+
+    suspend fun getTextTest(): String
 //    fun getLocalLocation(application: Application): Flow<List<LocationEntity>>
 //
 //    suspend fun insertLocalLocation(location: LocationEntity, context: Context)
