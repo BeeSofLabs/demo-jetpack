@@ -66,7 +66,5 @@ class MainLiveViewModelTest : TestCase() {
             assertEquals(Resource.Success::class.java, it.javaClass)
             assertEquals(data.value.locationData, locationResponse.locationData)
         }
-
-
     }
 }
