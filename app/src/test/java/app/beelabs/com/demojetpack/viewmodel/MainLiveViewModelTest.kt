@@ -47,8 +47,12 @@ class MainLiveViewModelTest : TestCase() {
         testDispatcher.cleanupTestCoroutines()
     }
 
+    /**
+     *  Make sure in MainActivity.kt , the method 'doCoroutine()' enabled
+     *  Before you run the test
+     **/
     @Test
-    fun `testRemoteDataList`() = runBlockingTest {
+    fun `test remote data list`() = runBlockingTest {
 
         var locationResponse: LocationResponse = ObjectMapper().readValue(
             Paths.get("src/test/resources/dataLocation.json").toFile(),

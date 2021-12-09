@@ -16,8 +16,8 @@ class MainViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     fun getSource(iview: IView) {
-        (repository as LocationRepository).getSourceDataRemoteRX()
-            ?.subscribe(object : RxObserver<LocationResponse>(iview) {
+        repository.getSourceDataRemoteRX()
+            ?.subscribe(object : RxObserver<LocationResponse>(iview, "Memuat") {
                 override fun onNext(o: Any) {
                     super.onNext(o)
                     val data = o as LocationResponse
