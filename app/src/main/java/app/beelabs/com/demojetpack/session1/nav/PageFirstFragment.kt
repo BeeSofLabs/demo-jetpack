@@ -26,9 +26,7 @@ class  PageFirstFragment : Fragment() {
             findNavController().navigate(R.id.action_pageFirstFragment_to_pageSecondFragment)
         }
 
-        btnCustomer.setOnClickListener {
-            findNavController().navigate(R.id.action_pageFirstFragment_to_customerFirstFragment)
-        }
+
         return rootView
     }
 

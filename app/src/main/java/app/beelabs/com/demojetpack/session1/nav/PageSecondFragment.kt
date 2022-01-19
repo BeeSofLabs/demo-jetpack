@@ -18,6 +18,7 @@ class PageSecondFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_page_second, container, false)
 
         val btnPage = rootView.findViewById<Button>(R.id.btn_page)
+        val btnCustomer = rootView.findViewById<Button>(R.id.btn_customer)
         val btnBack = rootView.findViewById<Button>(R.id.btn_back)
 
         btnPage.setOnClickListener {
@@ -25,6 +26,9 @@ class PageSecondFragment : Fragment() {
         }
         btnBack.setOnClickListener {
             activity?.onBackPressed()
+        }
+        btnCustomer.setOnClickListener {
+            findNavController().navigate(R.id.action_pageSecondFragment_to_nav_graph_customer)
         }
         // Inflate the layout for this fragment
         return rootView
