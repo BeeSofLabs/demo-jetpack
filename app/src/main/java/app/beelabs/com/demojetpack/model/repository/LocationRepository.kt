@@ -1,8 +1,5 @@
 package app.beelabs.com.demojetpack.model.repository
 
-//import okhttp3.Dispatcher
-import android.app.Application
-import android.content.Context
 import app.beelabs.coconut.mvvm.base.BaseRepository
 import app.beelabs.com.demojetpack.model.api.remote.SourceRemoteDataSource
 import app.beelabs.com.demojetpack.model.api.response.LocationResponse
@@ -23,8 +20,6 @@ open class LocationRepository @Inject constructor(
     private val locationDao: LocationDao
 ) : BaseRepository(), ILocationRepository {
 
-    override suspend fun getTextTest() = "hello world"
-
     fun getSourceDataRemoteRX(): Observable<LocationResponse?>? =
         remoteData.getSourceByRX()?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
@@ -33,13 +28,13 @@ open class LocationRepository @Inject constructor(
 
 
     // Database
-    fun getLocalLocation(application: Application): Flow<List<LocationEntity>> =
+    fun getLocalLocation(): Flow<List<LocationEntity>> =
         flow {
             emit(locationDao.getLocations())
         }.flowOn(IO)
 
 
-    suspend fun insertLocalLocation(location: LocationEntity, context: Context) {
+    suspend fun insertLocalLocation(location: LocationEntity?) {
         locationDao.insertLocation(location)
     }
 

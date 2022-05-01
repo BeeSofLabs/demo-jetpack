@@ -9,5 +9,5 @@ data class LocationEntity(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id") val id: Int = 0,
-    @ColumnInfo(name = "name") val name: String
+    @ColumnInfo(name = "name") val name: String = ""
 )

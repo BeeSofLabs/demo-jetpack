@@ -1,8 +1,5 @@
 package app.beelabs.com.demojetpack.viewmodel
 
-import android.app.Application
-import android.content.Context
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -13,8 +10,6 @@ import app.beelabs.com.demojetpack.model.pojo.LocationEntity
 import app.beelabs.com.demojetpack.model.repository.LocationRepository
 import app.beelabs.com.demojetpack.ui.interfaces.ILocationRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -36,17 +31,20 @@ class MainLiveViewModel @Inject constructor(
             _location.postValue(result)
         }
 
-    fun getLocalLocation(application: Application) {
+    fun getLocalLocation() {
         viewModelScope.launch {
-            val list = (repository as LocationRepository).getLocalLocation(application)
+            val list = (repository as LocationRepository).getLocalLocation()
             list.collect { values ->
                 _localLocation.postValue(values)
             }
         }
     }
 
-    suspend fun insertLocalLocation(local: LocationEntity, context: Context) {
-        (repository as LocationRepository).insertLocalLocation(local, context)
+    fun insertLocalLocation(locationEntity: LocationEntity) {
+        viewModelScope.launch {
+            (repository as LocationRepository).insertLocalLocation(locationEntity)
+        }
+
     }
 
 }
